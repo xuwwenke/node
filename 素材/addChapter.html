@@ -11,7 +11,7 @@
             padding: 0;
         }
         body {
-            background: url(./bg.jpg) repeat;
+            /* background: url(./bg.jpg) repeat; */
         }
         table {
             border-collapse: collapse;
@@ -156,17 +156,17 @@
         <div class="left">
             <ul>
                 <li>
-                    <a href="##"  onclick="showList()">文章列表</a>
+                    <a href="http://localhost:8083/listmanager?username=admin&pwd=admin"  onclick="showList()">文章列表</a>
                 </li>
                 <li>
-                    <a href="##" onclick="addChapter()">添加文章</a>
+                    <a href="http://localhost:8083/addChapter" onclick="addChapter()">添加文章</a>
                 </li>
             </ul>
         </div>
         <div class="right">
             <div class="chapter">
                 <input type="text"  placeholder="文章标题"  class="editor_textfield editor_title ui_textfield j_title j_topic_sug_input normal-prefix" name="title" autocomplete="off" id="title">
-                <div class="content" contenteditable="true" id="ct"></div>
+                <div class="content" contenteditable="true" name="content" id="ct"></div>
                 <button class="el-button login-btn-submit el-button--primary" id="sub">提交</button>
             </div>
         </div>
@@ -177,11 +177,11 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
     function showList() {
-        window.location = "http://localhost:8083/listmanager/"
+        window.location = "http://localhost:8083/listmanager?username=admin&pwd=admin"
     }
     $("#sub").click(function() {
         $.post("http://localhost:8083/add", {"title": $("#title").val(), "content": $("#ct").html()}, function(data) {
-            window.location = "http://localhost:8083/listmanager/"
+            window.location = "http://localhost:8083/listmanager?username=admin&pwd=admin"
         })
     })
 </script>
